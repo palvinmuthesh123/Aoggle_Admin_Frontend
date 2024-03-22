@@ -48,7 +48,6 @@ function Video({ item }) {
                 return null;
             }
         }
-
     }
 
 
@@ -57,10 +56,9 @@ function Video({ item }) {
             postId: item._id
         }
         try {
-            await axios.post("http://ec2-13-201-86-102.ap-south-1.compute.amazonaws.com:8000/delete-post", data).then((response) => {
+            await axios.post("http://ec2-13-201-86-102.ap-south-1.compute.amazonaws.com:8000/admin/delete-post", data).then((response) => {
             if(response.data.status === 'success'){
                 window.location.reload()
-                // toast.success(response.data.message);
                 return null;
             }else{
                 toast.success(response.data.message);
